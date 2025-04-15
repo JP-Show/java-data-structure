@@ -18,6 +18,14 @@ public class Vector {
             throw new RuntimeException("Vector is full, can't add more elements");
     }
 
+    public String fetch(int index){
+        if (!(index >= 0 && index < size)) {
+            throw new IllegalArgumentException("Invalid index: " + index + 
+                " max size: " + size);
+        }
+        return elements[index];
+    }
+
     public int getSize(){
         return size;
     }
