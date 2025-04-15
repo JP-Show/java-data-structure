@@ -10,6 +10,8 @@ public class Vector {
     }
 
     public void add(String element){
+
+        increasesCapacity();
         if(this.size < this.elements.length){
             this.elements[this.size++] = element;
         }else 
@@ -19,6 +21,7 @@ public class Vector {
     public boolean add(int index, String element){
         indexValidation(index);
         
+        increasesCapacity();
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = this.elements[i];
         }
@@ -49,6 +52,16 @@ public class Vector {
         if (!(index >= 0 && index < size)) 
             throw new IllegalArgumentException("Invalid index: " + index + 
                 " max size: " + size);
+    }
+
+    private void increasesCapacity(){
+        if(this.size == this.elements.length){
+            String[] newElements = new String[this.elements.length * 2];
+            for (int i = 0; i < elements.length; i++) {
+                newElements[i] = elements[i];
+            }
+            this.elements = newElements;
+        }
     }
 
     @Override
