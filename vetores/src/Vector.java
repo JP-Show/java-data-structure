@@ -44,6 +44,14 @@ public class Vector {
         return -1;
     }
 
+    public void remove(int index){
+        indexValidation(index);
+        for (int i = index; i < size; i++) {
+            this.elements[i] = this.elements[i + 1];
+        }
+        this.size--;
+    }
+
     public int getSize(){
         return size;
     }
