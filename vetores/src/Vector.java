@@ -1,5 +1,7 @@
 package vetores.src;
 
+import java.util.Arrays;
+
 public class Vector {
     private String[] elements;
     private int size;
@@ -8,11 +10,29 @@ public class Vector {
         this.elements = new String[size];
         this.size = 0;
     }
-    
+
     public void add(String element){
         if(this.size < this.elements.length){
             this.elements[this.size++] = element;
         }else 
             throw new RuntimeException("Vector is full, can't add more elements");
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < size - 1; i++) {
+            sb.append(elements[i]+", ");
+        }
+        if(size > 0)
+            sb.append(elements[size - 1]);
+        sb.append("]");
+
+        return sb.toString();
     }
 }
