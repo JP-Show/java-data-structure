@@ -25,6 +25,15 @@ public class Vector {
         }
         return elements[index];
     }
+    
+    //sequencial search
+    public int fetch(String element){
+        for (int i = 0; i < size; i++) {
+            if(this.elements[i].equals(element))
+                return i;
+        }
+        return -1;
+    }
 
     public int getSize(){
         return size;
