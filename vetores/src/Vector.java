@@ -16,6 +16,17 @@ public class Vector {
             throw new RuntimeException("Vector is full, can't add more elements");
     }
 
+    public boolean add(int index, String element){
+        indexValidation(index);
+        
+        for (int i = size - 1; i >= index; i--) {
+            elements[i + 1] = this.elements[i];
+        }
+        elements[index] = element;
+        size++;
+        return true;
+    }
+
     public String fetch(int index){
         indexValidation(index);
         return elements[index];
