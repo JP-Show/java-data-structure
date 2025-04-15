@@ -1,7 +1,5 @@
 package vetores.src;
 
-import java.util.Arrays;
-
 public class Vector {
     private String[] elements;
     private int size;
@@ -19,13 +17,10 @@ public class Vector {
     }
 
     public String fetch(int index){
-        if (!(index >= 0 && index < size)) {
-            throw new IllegalArgumentException("Invalid index: " + index + 
-                " max size: " + size);
-        }
+        indexValidation(index);
         return elements[index];
     }
-    
+
     //sequencial search
     public int fetch(String element){
         for (int i = 0; i < size; i++) {
@@ -37,6 +32,12 @@ public class Vector {
 
     public int getSize(){
         return size;
+    }
+
+    private void indexValidation(int index){
+        if (!(index >= 0 && index < size)) 
+            throw new IllegalArgumentException("Invalid index: " + index + 
+                " max size: " + size);
     }
 
     @Override
