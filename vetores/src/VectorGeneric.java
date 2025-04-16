@@ -81,10 +81,26 @@ public class VectorGeneric<T> {
 
     public void remove(int index){
         indexValidation(index);
-        for (int i = index; i < size; i++) {
+        for (int i = index; i < size - 1; i++) {
             this.elements[i] = this.elements[i + 1];
         }
+        this.elements[size - 1] = null;
         this.size--;
+    }
+
+    public boolean remove(T element){
+        if(element == null){
+            throw new IllegalArgumentException("element is null");
+        }
+        
+        for (int i = 0; i < size; i++) {
+            if(elements[i].equals(element)){
+                this.remove(i);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public int getSize(){
