@@ -66,6 +66,19 @@ public class VectorGeneric<T> {
         return false;
     }
 
+    public int lastIndexOf(T element){
+        if(element == null){
+            throw new IllegalArgumentException("element is null");
+        }
+        
+        for (int i = size - 1; i > 0; i--) {
+            if(elements[i].equals(element)) return i;
+            
+        }
+
+        return -1;
+    }
+
     public void remove(int index){
         indexValidation(index);
         for (int i = index; i < size; i++) {
