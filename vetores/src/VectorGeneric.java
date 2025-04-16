@@ -1,6 +1,7 @@
 package vetores.src;
 
 import java.lang.reflect.Array;
+import java.util.stream.Stream;
 
 public class VectorGeneric<T> {
     private T[] elements;
@@ -51,6 +52,18 @@ public class VectorGeneric<T> {
                 return i;
         }
         return -1;
+    }
+
+    public boolean contains(T element){
+        if(element == null){
+            throw new IllegalArgumentException("element is null");
+        }
+
+        for (int i = 0; i < size; i++) {
+            if(elements[i].equals(element)) return true;
+        }
+
+        return false;
     }
 
     public void remove(int index){
