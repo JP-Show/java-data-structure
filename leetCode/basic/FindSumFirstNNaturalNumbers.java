@@ -3,6 +3,9 @@ package leetCode.basic;
 public class FindSumFirstNNaturalNumbers {
     public static void main(String[] args) {
         findSum(5);
+        //time complexity O(n)
+        findSumEfficient(0);
+        //time complexity O(1)
     }
 
     static void findSum(int n){
@@ -18,6 +21,8 @@ public class FindSumFirstNNaturalNumbers {
             }
             System.out.print(" + ");
         }
-        
+    }
+    static int findSumEfficient(int n){
+        return (n * (n + 1) / 2);
     }
 }
